@@ -1,0 +1,2 @@
+# adicione dependências aqui, ex:
+# pytest==8.0.
