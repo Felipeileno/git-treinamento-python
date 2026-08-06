@@ -1,4 +1,13 @@
-from calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem
+from calculadora import (
+    soma,
+    subtracao,
+    multiplicacao,
+    divisao,
+    potencia,
+    raiz_quadrada,
+    porcentagem,
+)
+
 
 def menu():
     opcoes = {
@@ -34,6 +43,7 @@ def menu():
 
     except ValueError as e:
         print(f"Erro: {e}")
+
 
 if __name__ == "__main__":
     menu()
