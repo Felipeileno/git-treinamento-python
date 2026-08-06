@@ -1,35 +1,10 @@
-from calculadora import soma, subtracao, multiplicacao, divisao
-def menu():
-    opcoes = {
-        "1": ("Soma", soma),
-        "2": ("Subtração", subtracao),
-        "3": ("Multiplicação", multiplicacao),
-        "4": ("Divisão", divisao),
-    }
-
-    print("=== Calculadora ===")
-    for chave, (nome, _) in opcoes.items():
-        print(f"{chave} - {nome}")
-
-    escolha = input("Escolha uma opção: ")
-    if escolha not in opcoes:
-        print("Opção inválida.")
-        return
-
-    try:
-        a = float(input("Digite o primeiro número: "))
-        b = float(input("Digite o segundo número: "))
-    except ValueError:
-        print("Entrada inválida. Digite um número.")
-        return
-
-    _, funcao = opcoes[escolha]
-
-    try:
-        resultado = funcao(a, b)
-        print(f"Resultado: {resultado}")
-    except ValueError as e:
-        print(f"Erro: {e}")
-
-if __name__ == "__main__":
-    menu()
+from calculadora import soma, subtracao, multiplicacao
+print("=== Treinamento Git ===")
+a = 20
+b = 10
+print(f"Soma: {soma(a, b)}")
+print(f"Subtração: {subtracao(a, b)}")
+print(f"Multiplicação: {multiplicacao(a, b)}")
+from calculadora import divisao
+resultado = divisao(10, 2)
+print(f"Resultado da divisão: {resultado}")

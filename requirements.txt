@@ -1,2 +1,6 @@
 # adicione dependências aqui, ex:
+<<<<<<< HEAD
 # pytest==8.0.
+=======
+# pytest==8.0.0
+>>>>>>> 368ab5c4e5408d9c86a6e45d74b751c7feb509da
