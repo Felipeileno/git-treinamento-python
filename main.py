@@ -1,10 +1,39 @@
-from calculadora import soma, subtracao, multiplicacao
-print("=== Treinamento Git ===")
-a = 20
-b = 10
-print(f"Soma: {soma(a, b)}")
-print(f"Subtração: {subtracao(a, b)}")
-print(f"Multiplicação: {multiplicacao(a, b)}")
-from calculadora import divisao
-resultado = divisao(10, 2)
-print(f"Resultado da divisão: {resultado}")
+from calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem
+
+def menu():
+    opcoes = {
+        "1": ("Soma", soma),
+        "2": ("Subtração", subtracao),
+        "3": ("Multiplicação", multiplicacao),
+        "4": ("Divisão", divisao),
+        "5": ("Potência", potencia),
+        "6": ("Porcentagem", porcentagem),
+    }
+
+    print("=== Calculadora ===")
+    for chave, (nome, _) in opcoes.items():
+        print(f"{chave} - {nome}")
+    print("7 - Raiz quadrada (só precisa de 1 número)")
+
+    escolha = input("Escolha uma opção: ")
+
+    try:
+        if escolha == "7":
+            valor = float(input("Digite o número: "))
+            resultado = raiz_quadrada(valor)
+        elif escolha in opcoes:
+            a = float(input("Digite o primeiro número: "))
+            b = float(input("Digite o segundo número: "))
+            _, funcao = opcoes[escolha]
+            resultado = funcao(a, b)
+        else:
+            print("Opção inválida.")
+            return
+
+        print(f"Resultado: {resultado}")
+
+    except ValueError as e:
+        print(f"Erro: {e}")
+
+if __name__ == "__main__":
+    menu()
