@@ -28,3 +28,17 @@ def raiz_quadrada(valor: float) -> float:
 
 def porcentagem(valor: float, percentual: float) -> float:
     return valor * (percentual / 100)
+def fatorial(n: int) -> int:
+    if n < 0:
+        raise ValueError("Não é possível calcular fatorial de número negativo.")
+    if n == 0:
+        return 1
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+    return resultado
+
+def modulo(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("Não é possível calcular resto da divisão por zero.")
+    return a % b

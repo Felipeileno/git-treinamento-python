@@ -1,3 +1,4 @@
+![Tests](https://github.com/Felipeileno/git-treinamento-python/actions/workflows/tests.yml/badge.svg)
 # git-treinamento-python
 # Calculadora
 
