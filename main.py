@@ -1,4 +1,4 @@
-﻿from calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo
+﻿from calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo, media, maximo, minimo
 
 def menu():
     opcoes = {
@@ -16,6 +16,9 @@ def menu():
         print(f"{chave} - {nome}")
     print("7 - Raiz quadrada (só precisa de 1 número)")
     print("9 - Fatorial (só precisa de 1 número)")
+    print("10 - Média de uma lista de números")
+    print("11 - Máximo de uma lista de números")
+    print("12 - Mínimo de uma lista de números")
 
     escolha = input("Escolha uma opção: ")
 
@@ -26,6 +29,15 @@ def menu():
         elif escolha == "9":
             valor = int(input("Digite o número: "))
             resultado = fatorial(valor)
+        elif escolha in ("10", "11", "12"):
+            entrada = input("Digite os números separados por vírgula (ex: 2,4,6): ")
+            numeros = [float(n.strip()) for n in entrada.split(",")]
+            if escolha == "10":
+                resultado = media(numeros)
+            elif escolha == "11":
+                resultado = maximo(numeros)
+            else:
+                resultado = minimo(numeros)
         elif escolha in opcoes:
             a = float(input("Digite o primeiro número: "))
             b = float(input("Digite o segundo número: "))

@@ -42,3 +42,17 @@ def modulo(a: float, b: float) -> float:
     if b == 0:
         raise ValueError("Não é possível calcular resto da divisão por zero.")
     return a % b
+def media(numeros: list[float]) -> float:
+    if not numeros:
+        raise ValueError("A lista não pode estar vazia.")
+    return sum(numeros) / len(numeros)
+
+def maximo(numeros: list[float]) -> float:
+    if not numeros:
+        raise ValueError("A lista não pode estar vazia.")
+    return max(numeros)
+
+def minimo(numeros: list[float]) -> float:
+    if not numeros:
+        raise ValueError("A lista não pode estar vazia.")
+    return min(numeros)
