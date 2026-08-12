@@ -2,6 +2,7 @@
 
 ![Tests](https://github.com/Felipeileno/git-treinamento-python/actions/workflows/tests.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.14-blue)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Calculadora de linha de comando desenvolvida em Python, criada como projeto de treinamento em lógica de programação, testes automatizados e Git/GitHub (incluindo CI/CD).
