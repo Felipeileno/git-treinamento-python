@@ -18,6 +18,8 @@ from src.calculadora import (
     pes_para_metros,
     quilos_para_libras,
     libras_para_quilos,
+    salvar_historico,
+    ver_historico,
 )
 
 def test_soma():
@@ -216,3 +218,22 @@ def test_quilos_para_libras():
 
 def test_libras_para_quilos():
     assert round(libras_para_quilos(2.20462), 2) == 1.0
+def test_salvar_e_ver_historico(tmp_path, monkeypatch):
+    caminho_temporario = tmp_path / "historico_teste.txt"
+    monkeypatch.setattr("src.calculadora.HISTORICO_PATH", caminho_temporario)
+
+    salvar_historico("Soma", "2, 3", 5)
+    linhas = ver_historico()
+
+    assert len(linhas) == 1
+    assert "Soma" in linhas[0]
+    assert "5" in linhas[0]
+
+
+def test_ver_historico_vazio(tmp_path, monkeypatch):
+    caminho_temporario = tmp_path / "historico_vazio.txt"
+    monkeypatch.setattr("src.calculadora.HISTORICO_PATH", caminho_temporario)
+
+    linhas = ver_historico()
+    assert linhas == []
+    
