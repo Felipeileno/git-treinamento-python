@@ -78,9 +78,7 @@ def menu():
             nome_op = "Fatorial"
             valores_str = f"{valor}"
         elif escolha in ("10", "11", "12"):
-            entrada = input(
-                "Digite os números separados por vírgula (ex: 2,4,6): "
-            )
+            entrada = input("Digite os números separados por vírgula (ex: 2,4,6): ")
             numeros = [float(n.strip()) for n in entrada.split(",")]
             if escolha == "10":
                 resultado = media(numeros)

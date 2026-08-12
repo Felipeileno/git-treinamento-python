@@ -36,9 +36,7 @@ def porcentagem(valor: float, percentual: float) -> float:
 
 def fatorial(n: int) -> int:
     if n < 0:
-        raise ValueError(
-            "Não é possível calcular fatorial de número negativo."
-        )
+        raise ValueError("Não é possível calcular fatorial de número negativo.")
     if n == 0:
         return 1
     resultado = 1
