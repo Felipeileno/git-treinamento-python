@@ -1,5 +1,5 @@
 ﻿import pytest
-from calculadora import (
+from src.calculadora import (
     soma,
     subtracao,
     multiplicacao,

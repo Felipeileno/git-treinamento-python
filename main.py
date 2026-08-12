@@ -1,4 +1,4 @@
-﻿from calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo, media, maximo, minimo
+﻿from src.calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo, media, maximo, minimo
 
 def menu():
     opcoes = {
