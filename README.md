@@ -32,6 +32,14 @@ cd git-treinamento-python
 python main.py
 \`\`\`
 
+## 🖥️ Interface gráfica (opcional)
+
+Além do menu de linha de comando, o projeto também tem uma versão com interface gráfica:
+
+\`\`\`bash
+python interface.py
+\`\`\`
+
 ## 🧪 Como testar
 
 \`\`\`bash
