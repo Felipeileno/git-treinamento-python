@@ -125,3 +125,54 @@ def test_media_parametrizado(numeros, esperado):
 def test_fatorial_negativo_parametrizado(valor):
     with pytest.raises(ValueError):
         fatorial(valor)
+@pytest.mark.parametrize("a, b, esperado", [
+    (3, 4, 12),
+    (-2, 5, -10),
+    (0, 100, 0),
+    (7, 7, 49),
+    (-3, -3, 9),
+])
+def test_multiplicacao_parametrizado(a, b, esperado):
+    assert multiplicacao(a, b) == esperado
+
+
+@pytest.mark.parametrize("base, expoente, esperado", [
+    (2, 3, 8),
+    (5, 0, 1),
+    (10, 2, 100),
+    (2, 10, 1024),
+    (3, 1, 3),
+])
+def test_potencia_parametrizado(base, expoente, esperado):
+    assert potencia(base, expoente) == esperado
+
+
+@pytest.mark.parametrize("a, b, esperado", [
+    (10, 3, 1),
+    (9, 3, 0),
+    (7, 2, 1),
+    (100, 10, 0),
+    (5, 7, 5),
+])
+def test_modulo_parametrizado(a, b, esperado):
+    assert modulo(a, b) == esperado
+
+
+@pytest.mark.parametrize("numeros, esperado", [
+    ([3, 7, 1, 9, 4], 9),
+    ([-5, -1, -10], -1),
+    ([100], 100),
+    ([2, 2, 2], 2),
+])
+def test_maximo_parametrizado(numeros, esperado):
+    assert maximo(numeros) == esperado
+
+
+@pytest.mark.parametrize("numeros, esperado", [
+    ([3, 7, 1, 9, 4], 1),
+    ([-5, -1, -10], -10),
+    ([100], 100),
+    ([2, 2, 2], 2),
+])
+def test_minimo_parametrizado(numeros, esperado):
+    assert minimo(numeros) == esperado        
