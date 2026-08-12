@@ -80,3 +80,48 @@ def test_minimo():
 def test_minimo_lista_vazia():
     with pytest.raises(ValueError):
         minimo([])
+@pytest.mark.parametrize("a, b, esperado", [
+    (2, 3, 5),
+    (-1, 1, 0),
+    (0, 0, 0),
+    (100, 200, 300),
+    (-5, -5, -10),
+])
+def test_soma_parametrizado(a, b, esperado):
+    assert soma(a, b) == esperado
+
+
+@pytest.mark.parametrize("a, b, esperado", [
+    (10, 2, 5),
+    (9, 3, 3),
+    (-10, 2, -5),
+    (7.5, 2.5, 3.0),
+])
+def test_divisao_parametrizado(a, b, esperado):
+    assert divisao(a, b) == esperado
+
+
+@pytest.mark.parametrize("valor, esperado", [
+    (0, 1),
+    (1, 1),
+    (5, 120),
+    (6, 720),
+])
+def test_fatorial_parametrizado(valor, esperado):
+    assert fatorial(valor) == esperado
+
+
+@pytest.mark.parametrize("numeros, esperado", [
+    ([1, 2, 3], 2),
+    ([10, 20, 30], 20),
+    ([5], 5),
+    ([-2, -4, -6], -4),
+])
+def test_media_parametrizado(numeros, esperado):
+    assert media(numeros) == esperado
+
+
+@pytest.mark.parametrize("valor", [-1, -5, -100])
+def test_fatorial_negativo_parametrizado(valor):
+    with pytest.raises(ValueError):
+        fatorial(valor)
