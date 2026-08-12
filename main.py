@@ -1,4 +1,4 @@
-﻿from src.calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo, media, maximo, minimo, salvar_historico, ver_historico
+﻿from src.calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo, media, maximo, minimo, salvar_historico, ver_historico, celsius_para_fahrenheit, fahrenheit_para_celsius, metros_para_pes, pes_para_metros, quilos_para_libras, libras_para_quilos
 
 def menu():
     opcoes = {
@@ -11,6 +11,15 @@ def menu():
         "8": ("Módulo (resto da divisão)", modulo),
     }
 
+    conversoes = {
+        "14": ("Celsius → Fahrenheit", celsius_para_fahrenheit),
+        "15": ("Fahrenheit → Celsius", fahrenheit_para_celsius),
+        "16": ("Metros → Pés", metros_para_pes),
+        "17": ("Pés → Metros", pes_para_metros),
+        "18": ("Quilos → Libras", quilos_para_libras),
+        "19": ("Libras → Quilos", libras_para_quilos),
+    }
+
     print("=== Calculadora ===")
     for chave, (nome, _) in opcoes.items():
         print(f"{chave} - {nome}")
@@ -20,6 +29,9 @@ def menu():
     print("11 - Máximo de uma lista de números")
     print("12 - Mínimo de uma lista de números")
     print("13 - Ver histórico de operações")
+    print("--- Conversões ---")
+    for chave, (nome, _) in conversoes.items():
+        print(f"{chave} - {nome}")
 
     escolha = input("Escolha uma opção: ")
 
@@ -57,6 +69,11 @@ def menu():
                 resultado = minimo(numeros)
                 nome_op = "Mínimo"
             valores_str = str(numeros)
+        elif escolha in conversoes:
+            valor = float(input("Digite o valor: "))
+            nome_op, funcao = conversoes[escolha]
+            resultado = funcao(valor)
+            valores_str = f"{valor}"
         elif escolha in opcoes:
             a = float(input("Digite o primeiro número: "))
             b = float(input("Digite o segundo número: "))

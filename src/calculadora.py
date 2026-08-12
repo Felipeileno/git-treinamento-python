@@ -72,3 +72,20 @@ def ver_historico() -> list[str]:
         return []
     with open(HISTORICO_PATH, "r", encoding="utf-8") as arquivo:
         return arquivo.readlines()
+def celsius_para_fahrenheit(celsius: float) -> float:
+    return (celsius * 9 / 5) + 32
+
+def fahrenheit_para_celsius(fahrenheit: float) -> float:
+    return (fahrenheit - 32) * 5 / 9
+
+def metros_para_pes(metros: float) -> float:
+    return metros * 3.28084
+
+def pes_para_metros(pes: float) -> float:
+    return pes / 3.28084
+
+def quilos_para_libras(quilos: float) -> float:
+    return quilos * 2.20462
+
+def libras_para_quilos(libras: float) -> float:
+    return libras / 2.20462

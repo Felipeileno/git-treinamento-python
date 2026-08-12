@@ -12,6 +12,12 @@ from src.calculadora import (
     media,
     maximo,
     minimo,
+    celsius_para_fahrenheit,
+    fahrenheit_para_celsius,
+    metros_para_pes,
+    pes_para_metros,
+    quilos_para_libras,
+    libras_para_quilos,
 )
 
 def test_soma():
@@ -175,4 +181,38 @@ def test_maximo_parametrizado(numeros, esperado):
     ([2, 2, 2], 2),
 ])
 def test_minimo_parametrizado(numeros, esperado):
-    assert minimo(numeros) == esperado        
+    assert minimo(numeros) == esperado
+@pytest.mark.parametrize("celsius, esperado", [
+    (0, 32.0),
+    (100, 212.0),
+    (-40, -40.0),
+    (37, 98.6),
+])
+def test_celsius_para_fahrenheit_parametrizado(celsius, esperado):
+    assert round(celsius_para_fahrenheit(celsius), 1) == esperado
+
+
+@pytest.mark.parametrize("fahrenheit, esperado", [
+    (32, 0.0),
+    (212, 100.0),
+    (-40, -40.0),
+    (98.6, 37.0),
+])
+def test_fahrenheit_para_celsius_parametrizado(fahrenheit, esperado):
+    assert round(fahrenheit_para_celsius(fahrenheit), 1) == esperado
+
+
+def test_metros_para_pes():
+    assert round(metros_para_pes(1), 2) == 3.28
+
+
+def test_pes_para_metros():
+    assert round(pes_para_metros(3.28084), 2) == 1.0
+
+
+def test_quilos_para_libras():
+    assert round(quilos_para_libras(1), 2) == 2.20
+
+
+def test_libras_para_quilos():
+    assert round(libras_para_quilos(2.20462), 2) == 1.0
