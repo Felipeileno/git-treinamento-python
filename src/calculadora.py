@@ -56,3 +56,19 @@ def minimo(numeros: list[float]) -> float:
     if not numeros:
         raise ValueError("A lista não pode estar vazia.")
     return min(numeros)
+from datetime import datetime
+from pathlib import Path
+
+HISTORICO_PATH = Path("logs/historico.txt")
+
+def salvar_historico(operacao: str, valores: str, resultado) -> None:
+    HISTORICO_PATH.parent.mkdir(exist_ok=True)
+    linha = f"{datetime.now():%d/%m/%Y %H:%M:%S} | {operacao} | {valores} | Resultado: {resultado}\n"
+    with open(HISTORICO_PATH, "a", encoding="utf-8") as arquivo:
+        arquivo.write(linha)
+
+def ver_historico() -> list[str]:
+    if not HISTORICO_PATH.exists():
+        return []
+    with open(HISTORICO_PATH, "r", encoding="utf-8") as arquivo:
+        return arquivo.readlines()
