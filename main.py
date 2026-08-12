@@ -1,4 +1,26 @@
-﻿from src.calculadora import soma, subtracao, multiplicacao, divisao, potencia, raiz_quadrada, porcentagem, fatorial, modulo, media, maximo, minimo, salvar_historico, ver_historico, celsius_para_fahrenheit, fahrenheit_para_celsius, metros_para_pes, pes_para_metros, quilos_para_libras, libras_para_quilos
+﻿from src.calculadora import (
+    soma,
+    subtracao,
+    multiplicacao,
+    divisao,
+    potencia,
+    raiz_quadrada,
+    porcentagem,
+    fatorial,
+    modulo,
+    media,
+    maximo,
+    minimo,
+    salvar_historico,
+    ver_historico,
+    celsius_para_fahrenheit,
+    fahrenheit_para_celsius,
+    metros_para_pes,
+    pes_para_metros,
+    quilos_para_libras,
+    libras_para_quilos,
+)
+
 
 def menu():
     opcoes = {
@@ -10,7 +32,6 @@ def menu():
         "6": ("Porcentagem", porcentagem),
         "8": ("Módulo (resto da divisão)", modulo),
     }
-
     conversoes = {
         "14": ("Celsius → Fahrenheit", celsius_para_fahrenheit),
         "15": ("Fahrenheit → Celsius", fahrenheit_para_celsius),
@@ -57,7 +78,9 @@ def menu():
             nome_op = "Fatorial"
             valores_str = f"{valor}"
         elif escolha in ("10", "11", "12"):
-            entrada = input("Digite os números separados por vírgula (ex: 2,4,6): ")
+            entrada = input(
+                "Digite os números separados por vírgula (ex: 2,4,6): "
+            )
             numeros = [float(n.strip()) for n in entrada.split(",")]
             if escolha == "10":
                 resultado = media(numeros)
@@ -92,6 +115,7 @@ def menu():
 
     except ValueError as e:
         print(f"Erro: {e}")
+
 
 if __name__ == "__main__":
     menu()
