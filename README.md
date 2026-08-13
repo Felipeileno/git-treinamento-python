@@ -62,16 +62,33 @@ python main.py
 python interface.py
 ```
 
+## 🐳 Docker
+
+A CLI também pode rodar em um container Docker (o menu interativo e a interface gráfica ficam de fora, já que dependem de terminal/tela interativos):
+
+```bash
+docker build -t calculadora .
+docker run --rm calculadora soma 2 3
+docker run --rm calculadora converter celsius-fahrenheit 100
+docker run --rm calculadora --help
+```
+
+Por padrão, o histórico gerado dentro do container é perdido quando ele termina. Para persistir fora do container:
+
+```bash
+docker run --rm -v ${PWD}/logs:/app/logs calculadora soma 2 3
+```
+
 ## 🧪 Como testar
 
 ```bash
 pytest
-pytest --cov=src --cov-report=term-missing
+pytest --cov=calculadora --cov-report=term-missing
 ```
 
 ## 🔎 Verificação de tipos (mypy)
 
-O projeto usa [mypy](https://mypy.readthedocs.io/) em modo `strict` para checagem estática de tipos em `src/`, `main.py` e `interface.py`.
+O projeto usa [mypy](https://mypy.readthedocs.io/) em modo `strict` para checagem estática de tipos em `calculadora/`, `main.py` e `interface.py`.
 
 ```bash
 mypy
@@ -88,10 +105,12 @@ pre-commit run --all-files
 ```
 
 ## 📁 Estrutura do projeto
+
 git-treinamento-python/
 ├── .github/workflows/tests.yml
-├── src/
-│ ├── calculadora.py
+├── calculadora/
+│ ├── core.py
+│ ├── cli.py
 │ └── logging_config.py
 ├── tests/
 │ └── test_calculadora.py
@@ -100,13 +119,15 @@ git-treinamento-python/
 ├── conftest.py
 ├── pyproject.toml
 ├── requirements.txt
+├── Dockerfile
+├── .dockerignore
 ├── .flake8
+├── .gitignore
 ├── .pre-commit-config.yaml
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 └── README.md
-
 
 ## 🛠️ Tecnologias
 
@@ -117,6 +138,8 @@ git-treinamento-python/
 - pre-commit (hooks de qualidade automatizados)
 - argparse (CLI)
 - tkinter (interface gráfica)
+- setuptools (empacotamento via pip)
+- Docker
 - GitHub Actions (CI)
 
 ## 👤 Autor
