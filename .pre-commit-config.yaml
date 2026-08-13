@@ -14,4 +14,4 @@
     rev: v2.3.0
     hooks:
       - id: mypy
-files: ^(calculadora/|main\.py|interface\.py)
+        files: ^(calculadora/|main\.py|interface\.py)
