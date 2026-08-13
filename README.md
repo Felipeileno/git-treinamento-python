@@ -3,67 +3,120 @@
 ![Tests](https://github.com/Felipeileno/git-treinamento-python/actions/workflows/tests.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.14-blue)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![mypy](https://img.shields.io/badge/mypy-strict-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Calculadora de linha de comando desenvolvida em Python, criada como projeto de treinamento em lógica de programação, testes automatizados e Git/GitHub (incluindo CI/CD).
+Calculadora em Python criada como projeto de treinamento em lógica de programação, testes automatizados, qualidade de código e Git/GitHub (incluindo CI/CD). Tem 3 formas de uso: CLI com argumentos, menu interativo e interface gráfica.
 
 ## 📋 Funcionalidades
 
-| Opção | Operação | Observação |
+| Comando (CLI) | Operação | Observação |
 |---|---|---|
-| 1 | Soma | |
-| 2 | Subtração | |
-| 3 | Multiplicação | |
-| 4 | Divisão | Bloqueia divisão por zero |
-| 5 | Potência | |
-| 6 | Porcentagem | |
-| 7 | Raiz quadrada | Só pede 1 número |
-| 8 | Módulo (resto da divisão) | |
-| 9 | Fatorial | Só pede 1 número |
-| 10 | Média de uma lista | Números separados por vírgula |
-| 11 | Máximo de uma lista | Números separados por vírgula |
-| 12 | Mínimo de uma lista | Números separados por vírgula |
+| `soma A B` | Soma | |
+| `subtracao A B` | Subtração | |
+| `multiplicacao A B` | Multiplicação | |
+| `divisao A B` | Divisão | Bloqueia divisão por zero |
+| `potencia A B` | Potência | |
+| `porcentagem A B` | Porcentagem | |
+| `modulo A B` | Módulo (resto da divisão) | Bloqueia módulo por zero |
+| `raiz-quadrada N` | Raiz quadrada | |
+| `fatorial N` | Fatorial | |
+| `media N1 N2 ...` | Média de uma lista | |
+| `maximo N1 N2 ...` | Máximo de uma lista | |
+| `minimo N1 N2 ...` | Mínimo de uma lista | |
+| `historico` | Ver histórico de operações | |
+| `converter TIPO VALOR` | Conversão de unidades | Veja tipos abaixo |
+
+**Tipos de conversão:** `celsius-fahrenheit`, `fahrenheit-celsius`, `metros-pes`, `pes-metros`, `quilos-libras`, `libras-quilos`
 
 ## 🚀 Como executar
 
-\`\`\`bash
+```bash
 git clone https://github.com/Felipeileno/git-treinamento-python.git
 cd git-treinamento-python
+pip install -r requirements.txt
+```
+
+### CLI com argumentos (uso rápido)
+
+```bash
+python main.py soma 2 3
+python main.py raiz-quadrada 16
+python main.py media 1 2 3 4
+python main.py converter celsius-fahrenheit 100
+python main.py historico
+python main.py --help
+```
+
+### Menu interativo
+
+Rodando sem argumentos, abre o menu de sempre (pergunta a operação e os números um por um):
+
+```bash
 python main.py
-\`\`\`
+```
 
 ## 🖥️ Interface gráfica (opcional)
 
-Além do menu de linha de comando, o projeto também tem uma versão com interface gráfica:
-
-\`\`\`bash
+```bash
 python interface.py
-\`\`\`
+```
 
 ## 🧪 Como testar
 
-\`\`\`bash
-pip install pytest
+```bash
 pytest
-\`\`\`
+pytest --cov=src --cov-report=term-missing
+```
+
+## 🔎 Verificação de tipos (mypy)
+
+O projeto usa [mypy](https://mypy.readthedocs.io/) em modo `strict` para checagem estática de tipos em `src/`, `main.py` e `interface.py`.
+
+```bash
+mypy
+```
+
+## ✅ Qualidade de código
+
+Formatação e linting automatizados com [Black](https://black.readthedocs.io/) e [Flake8](https://flake8.pycqa.org/), aplicados via [pre-commit](https://pre-commit.com/) hooks a cada commit:
+
+```bash
+pip install pre-commit
+pre-commit install
+pre-commit run --all-files
+```
 
 ## 📁 Estrutura do projeto
-
-\`\`\`
 git-treinamento-python/
 ├── .github/workflows/tests.yml
-├── tests/test_calculadora.py
-├── calculadora.py
+├── src/
+│ ├── calculadora.py
+│ └── logging_config.py
+├── tests/
+│ └── test_calculadora.py
 ├── main.py
+├── interface.py
 ├── conftest.py
+├── pyproject.toml
 ├── requirements.txt
+├── .flake8
+├── .pre-commit-config.yaml
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE
 └── README.md
-\`\`\`
+
 
 ## 🛠️ Tecnologias
 
 - Python 3.14
-- Pytest
+- Pytest + pytest-cov (testes e cobertura)
+- mypy (checagem de tipos, modo strict)
+- Black + Flake8 (formatação e linting)
+- pre-commit (hooks de qualidade automatizados)
+- argparse (CLI)
+- tkinter (interface gráfica)
 - GitHub Actions (CI)
 
 ## 👤 Autor
