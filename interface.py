@@ -11,7 +11,7 @@ from src.calculadora import (
 )
 
 
-def calcular():
+def calcular() -> None:
     try:
         a = float(entrada_a.get())
         b = float(entrada_b.get())

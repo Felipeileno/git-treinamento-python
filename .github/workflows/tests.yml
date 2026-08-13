@@ -10,3 +10,4 @@ jobs:
           python-version: "3.14"
       - run: pip install -r requirements.txt
       - run: pytest
+      - run: mypy

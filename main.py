@@ -1,4 +1,5 @@
 ﻿import logging
+from typing import Callable
 
 from src.calculadora import (
     soma,
@@ -25,8 +26,8 @@ from src.calculadora import (
 from src.logging_config import configurar_logging
 
 
-def menu():
-    opcoes = {
+def menu() -> None:
+    opcoes: dict[str, tuple[str, Callable[..., float]]] = {
         "1": ("Soma", soma),
         "2": ("Subtração", subtracao),
         "3": ("Multiplicação", multiplicacao),
@@ -35,7 +36,7 @@ def menu():
         "6": ("Porcentagem", porcentagem),
         "8": ("Módulo (resto da divisão)", modulo),
     }
-    conversoes = {
+    conversoes: dict[str, tuple[str, Callable[..., float]]] = {
         "14": ("Celsius para Fahrenheit", celsius_para_fahrenheit),
         "15": ("Fahrenheit para Celsius", fahrenheit_para_celsius),
         "16": ("Metros para Pés", metros_para_pes),
