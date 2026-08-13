@@ -1,4 +1,6 @@
-﻿from src.calculadora import (
+﻿import logging
+
+from src.calculadora import (
     soma,
     subtracao,
     multiplicacao,
@@ -20,6 +22,7 @@
     quilos_para_libras,
     libras_para_quilos,
 )
+from src.logging_config import configurar_logging
 
 
 def menu():
@@ -33,12 +36,12 @@ def menu():
         "8": ("Módulo (resto da divisão)", modulo),
     }
     conversoes = {
-        "14": ("Celsius → Fahrenheit", celsius_para_fahrenheit),
-        "15": ("Fahrenheit → Celsius", fahrenheit_para_celsius),
-        "16": ("Metros → Pés", metros_para_pes),
-        "17": ("Pés → Metros", pes_para_metros),
-        "18": ("Quilos → Libras", quilos_para_libras),
-        "19": ("Libras → Quilos", libras_para_quilos),
+        "14": ("Celsius para Fahrenheit", celsius_para_fahrenheit),
+        "15": ("Fahrenheit para Celsius", fahrenheit_para_celsius),
+        "16": ("Metros para Pés", metros_para_pes),
+        "17": ("Pés para Metros", pes_para_metros),
+        "18": ("Quilos para Libras", quilos_para_libras),
+        "19": ("Libras para Quilos", libras_para_quilos),
     }
 
     print("=== Calculadora ===")
@@ -103,17 +106,24 @@ def menu():
             valores_str = f"{a}, {b}"
         else:
             print("Opção inválida.")
+            logging.warning(f"Opção inválida selecionada: {escolha}")
             return
 
         if isinstance(resultado, float):
             resultado = round(resultado, 4)
 
         salvar_historico(nome_op, valores_str, resultado)
+        logging.info(
+            f"Operação '{nome_op}' executada com sucesso. " f"Resultado: {resultado}"
+        )
         print(f"Resultado: {resultado}")
 
     except ValueError as e:
+        logging.error(f"Erro na operação: {e}")
         print(f"Erro: {e}")
 
 
 if __name__ == "__main__":
+    configurar_logging()
+    logging.info("Calculadora iniciada")
     menu()
