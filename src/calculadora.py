@@ -21,13 +21,13 @@ def divisao(a: float, b: float) -> float:
 
 
 def potencia(base: float, expoente: float) -> float:
-    return base**expoente
+    return float(base**expoente)
 
 
 def raiz_quadrada(valor: float) -> float:
     if valor < 0:
         raise ValueError("Não é possível calcular raiz de número negativo.")
-    return valor**0.5
+    return float(valor**0.5)
 
 
 def porcentagem(valor: float, percentual: float) -> float:
@@ -72,7 +72,7 @@ def minimo(numeros: list[float]) -> float:
 HISTORICO_PATH = Path("logs/historico.txt")
 
 
-def salvar_historico(operacao: str, valores: str, resultado) -> None:
+def salvar_historico(operacao: str, valores: str, resultado: float | int) -> None:
     HISTORICO_PATH.parent.mkdir(exist_ok=True)
     linha = (
         f"{datetime.now():%d/%m/%Y %H:%M:%S} | {operacao} | "
