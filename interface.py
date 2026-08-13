@@ -1,7 +1,7 @@
 ﻿import tkinter as tk
 from tkinter import messagebox
 
-from src.calculadora import (
+from calculadora.core import (
     soma,
     subtracao,
     multiplicacao,

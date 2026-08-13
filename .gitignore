@@ -23,3 +23,7 @@ htmlcov/
 # Segredos (nunca versionar)
 .streamlit/secrets.toml
 .env
+# Empacotamento
+*.egg-info/
+build/
+dist/
