@@ -79,6 +79,15 @@ Por padrão, o histórico gerado dentro do container é perdido quando ele termi
 docker run --rm -v ${PWD}/logs:/app/logs calculadora soma 2 3
 ```
 
+### Usando a imagem já publicada (sem precisar buildar)
+
+A cada mudança mesclada na `main`, uma imagem atualizada é publicada automaticamente no GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/felipeileno/git-treinamento-python:latest
+docker run --rm ghcr.io/felipeileno/git-treinamento-python:latest soma 2 3
+```
+
 ## 🧪 Como testar
 
 ```bash
