@@ -27,14 +27,20 @@ Obrigado por considerar contribuir com este projeto! Aqui está o fluxo recomend
    pytest
 ```
 
-5. **Verifique a cobertura de testes** (idealmente, mantenha em 100%):
+5. **Verifique a cobertura de testes** (o `pytest` já falha automaticamente se cair abaixo de 100%):
 ```bash
-   pytest --cov=src --cov-report=term-missing
+   pytest --cov=calculadora --cov-report=term-missing
 ```
 
-6. **Faça o commit** seguindo o padrão de mensagens abaixo
+6. **Confirme que o mypy e o pre-commit passam**:
+```bash
+   mypy
+   pre-commit run --all-files
+```
 
-7. **Envie a branch e abra um Pull Request**:
+7. **Faça o commit** seguindo o padrão de mensagens abaixo
+
+8. **Envie a branch e abra um Pull Request**:
 ```bash
    git push -u origin feature/nome-da-sua-alteracao
 ```
@@ -55,6 +61,7 @@ Exemplo: `feat: adiciona conversão de temperatura`
 ## Checklist antes de abrir o Pull Request
 
 - [ ] Todos os testes passam (`pytest`)
-- [ ] A cobertura de testes não diminuiu
-- [ ] O código segue o estilo já usado no projeto
+- [ ] A cobertura de testes não diminuiu (`pytest` falha automaticamente abaixo de 100%)
+- [ ] `mypy` não reporta erros
+- [ ] `pre-commit run --all-files` passa (Black + Flake8 + mypy)
 - [ ] A mensagem de commit segue o padrão acima

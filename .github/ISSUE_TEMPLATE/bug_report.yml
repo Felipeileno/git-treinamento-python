@@ -1,0 +1,51 @@
+name: 🐛 Relato de bug
+description: Algo não está funcionando como esperado
+labels: ["bug"]
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: O que aconteceu?
+      description: Descreva o problema de forma clara.
+      placeholder: Ao rodar "calculadora raiz-quadrada -4", o programa quebra em vez de mostrar uma mensagem de erro.
+    validations:
+      required: true
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: Como reproduzir
+      description: Passo a passo pra reproduzir o problema.
+      placeholder: |
+        1. Rode `calculadora raiz-quadrada -4`
+        2. Observe o erro no terminal
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria ter acontecido em vez disso?
+    validations:
+      required: true
+
+  - type: input
+    id: versao-python
+    attributes:
+      label: Versão do Python
+      placeholder: "3.14"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: forma-de-uso
+    attributes:
+      label: Como você estava usando a calculadora?
+      options:
+        - CLI (calculadora / python main.py com argumentos)
+        - Menu interativo (python main.py sem argumentos)
+        - Interface gráfica (interface.py)
+        - Docker
+    validations:
+      required: false

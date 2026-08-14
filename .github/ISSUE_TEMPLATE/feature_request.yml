@@ -1,0 +1,29 @@
+name: ✨ Sugestão de funcionalidade
+description: Sugerir uma nova funcionalidade ou melhoria
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Que problema isso resolveria?
+      description: Qual necessidade ou limitação te fez pensar nessa sugestão?
+      placeholder: Não tem como calcular a média ponderada de uma lista de números.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solucao
+    attributes:
+      label: Solução que você imagina
+      description: Como você imagina que isso funcionaria?
+      placeholder: Um novo comando "media-ponderada" que recebe pares de valor e peso.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas
+      description: Você pensou em outra forma de resolver isso? (opcional)
+    validations:
+      required: false
