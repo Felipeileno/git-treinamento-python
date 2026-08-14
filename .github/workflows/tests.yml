@@ -1,4 +1,4 @@
-name: Testes
+﻿name: Testes
 on: [push, pull_request]
 jobs:
   test:
@@ -21,8 +21,20 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v7
       - run: docker build -t calculadora-python .
       - run: docker run --rm calculadora-python soma 2 3
       - run: docker run --rm calculadora-python converter celsius-fahrenheit 100
+      - name: Publicar no GitHub Container Registry
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          IMAGE=ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker tag calculadora-python "$IMAGE:latest"
+          docker tag calculadora-python "$IMAGE:${{ github.sha }}"
+          docker push "$IMAGE:latest"
+          docker push "$IMAGE:${{ github.sha }}"
