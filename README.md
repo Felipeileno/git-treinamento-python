@@ -1,7 +1,7 @@
 # Calculadora Python 🧮
 
 ![Tests](https://github.com/Felipeileno/git-treinamento-python/actions/workflows/tests.yml/badge.svg)
-![Python](https://img.shields.io/badge/python-3.14-blue)
+![Python](https://img.shields.io/badge/python-3.10--3.14-blue)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![mypy](https://img.shields.io/badge/mypy-strict-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -131,7 +131,7 @@ git-treinamento-python/
 
 ## 🛠️ Tecnologias
 
-- Python 3.14
+- Python 3.10+ (testado em CI nas versões 3.10 a 3.14)
 - Pytest + pytest-cov (testes e cobertura)
 - mypy (checagem de tipos, modo strict)
 - Black + Flake8 (formatação e linting)
