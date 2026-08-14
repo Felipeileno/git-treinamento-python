@@ -20,6 +20,9 @@ calculadora = "calculadora.cli:main"
 [tool.setuptools.packages.find]
 include = ["calculadora*"]
 
+[tool.pytest.ini_options]
+addopts = "--cov=calculadora --cov-report=term-missing --cov-fail-under=100"
+
 [tool.mypy]
 python_version = "3.14"
 strict = true
