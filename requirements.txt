@@ -1,4 +1,4 @@
-ast_serialize==0.7.0
+ast_serialize==0.8.0
 black==26.5.1
 click==8.4.2
 colorama==0.4.6
